@@ -17,5 +17,3 @@ if name:
     # Confirmation message
     st.write(f"You have selected: {selected_food}")
     st.write("Your food is going to be ready in 15 minutes!")
-
-
