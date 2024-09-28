@@ -53,4 +53,4 @@ if st.button("Ask Llama!"):
                 st.session_state.input = ""  # Reset input for the next question
             except Exception as e:  # Handle potential errors
                 st.error(f"Eror generating response: {str(e)}")
-                st.error("hey000l")
+                st.error("heyfjfjf000l")
