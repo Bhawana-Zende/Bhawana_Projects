@@ -19,9 +19,8 @@ if 'welcome_message_shown' not in st.session_state:
     st.session_state.welcome_message_shown = False  # Flag to track welcome message
 
 # Display conversation history
-if st.session_state.messages:
-    for msg in st.session_state.messages:
-        st.markdown(msg)
+for msg in st.session_state.messages:
+    st.markdown(msg)
 
 # Only show the welcome message once after the user enters their name
 if user_name and not st.session_state.welcome_message_shown:
@@ -31,18 +30,18 @@ if user_name and not st.session_state.welcome_message_shown:
     st.session_state.welcome_message_shown = True  # Set flag to true
 
 # Input area for user prompts
-st.session_state.input = st.text_area("What can I assist you with today?", placeholder="Ask your question here...", value=st.session_state.input)
+input_text = st.text_area("What can I assist you with today?", placeholder="Ask your question here...", value=st.session_state.input)
 
 # Button to generate response
 if st.button("Ask Llama!"):
-    if st.session_state.input.strip():  # Check if the prompt is provided
+    if input_text.strip():  # Check if the prompt is provided
         with st.spinner("Llama is thinking... 🤔"):
             try:
                 # Generate response from the model
-                response = llm(st.session_state.input)  # Call the model directly with the prompt
+                response = llm(input_text)  # Call the model directly with the prompt
                 
                 # Create message strings for display
-                user_message = f"👤 {user_name}: {st.session_state.input}"
+                user_message = f"👤 {user_name}: {input_text}"
                 llama_response = f"✨ Llama: {response} ✨"
 
                 # Update session state with new messages
