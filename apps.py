@@ -13,16 +13,14 @@ job_title = st.text_input("Enter the job title you're looking for (e.g., Product
 # Button to trigger the job search
 if st.button("Search Jobs"):
     if job_title:
-        # Use ChatCompletion instead of Completion for the new OpenAI API
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  # Use the appropriate model like "gpt-3.5-turbo" or "gpt-4"
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": f"Give me a brief summary of what skills a {job_title} typically needs."}
-            ]
+        # Use the new completion endpoint based on the new API interface
+        response = openai.completions.create(
+            model="gpt-3.5-turbo",  # Use the appropriate model
+            prompt=f"Give me a brief summary of what skills a {job_title} typically needs.",
+            max_tokens=100
         )
         
         # Display the LLM-generated job summary
-        job_summary = response['choices'][0]['message']['content'].strip()
+        job_summary = response.choices[0]['text'].strip()
         st.write(f"Job Summary for {job_title}:")
         st.write(job_summary)
