@@ -4,13 +4,14 @@ import streamlit as st
 st.title("Welcome to the Fun Zone! 🎉")
 
 # Greeting message
-st.write("🎉 Hi Xinlue! Are you ready for a super awesome game? 🎈")
+st.write("🎉 Hi Xinlue!")
+st.write("Are you ready for a super awesome game? 🎈")
 
 # Silly questions and their "correct" answers
 questions = {
-    "If Xinlue could be a vegetable, what would you be? (And why?) 🥦": "Carrot",
-    "If you could have any animal as a pet, which animal would you choose? 🎩": "Red Panda",
-    "whats xinlues famous sentence 💃🕺": "Play with me ",
+    "If Xinlue could be a vegetable, what would you be? 🥕": "Carrot",
+    "If you could have any animal as a pet, which animal would you choose? 🐼": "Red Panda",
+    "What’s Xinlue’s famous sentence? 💃🕺": "Play with me",
     "If you were a character in a cartoon, what would your catchphrase be? 📺": "The Big Ear Tutu!"
 }
 
@@ -26,7 +27,7 @@ def display_question():
     if st.button("Submit"):
         if answer:
             correct_answer = questions[question]
-            if answer.lower() == correct_answer.lower():
+            if answer.strip().lower() == correct_answer.lower():
                 st.write("🎉 Right! You totally nailed it! 🏆")
             else:
                 st.write(f"Oops! That's not quite right. The correct answer is: **{correct_answer}** 😄")
@@ -38,7 +39,7 @@ def display_question():
 if st.session_state.question_index < len(questions):
     display_question()
 else:
-    st.write("Bhawana loves you, silly boy! 💖 Thanks for playing! Remember, the world needs more fun and laughter!")
+    st.write("Bhawana loves you, silly boy! 💖 Thanks for playing! Remember, you ate her ice-cream. Be nice to her")
     # Reset for another round if desired
     if st.button("Play Again"):
         st.session_state.question_index = 0
