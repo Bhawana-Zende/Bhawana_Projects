@@ -1,4 +1,3 @@
-st.write("hey")
 import streamlit as st
 
 # Title of the app
