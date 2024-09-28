@@ -52,4 +52,4 @@ if st.button("Ask Llama!"):
                 # Clear the input for a new question
                 st.session_state.input = ""  # Reset input for the next question
             except Exception as e:  # Handle potential errors
-                st.error(f"Error generating response: {str(e)}")
+                st.error(f"Eror generating response: {str(e)}")
