@@ -2,7 +2,7 @@ from langchain_community.llms import Ollama
 import streamlit as st
 
 # Initialize the language model
-llm = Ollama(model="llama3.2:latest")
+llm = Ollama(model="ollama run llama3.2")
 
 # Fun and creative app title
 st.title("✨ Llama the Knowledge Genie ✨")
@@ -53,3 +53,4 @@ if st.button("Ask Llama!"):
                 st.session_state.input = ""  # Reset input for the next question
             except Exception as e:  # Handle potential errors
                 st.error(f"Eror generating response: {str(e)}")
+                st.error("heyl")
