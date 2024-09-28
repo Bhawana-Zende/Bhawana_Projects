@@ -9,10 +9,10 @@ st.write("Are you ready for a super awesome game? 🎈")
 
 # Silly questions and their "correct" answers
 questions = {
-    "If Xinlue could be a vegetable, what would you be? 🥕": "Carrot",
-    "If you could have any animal as a pet, which animal would you choose? 🐼": "Red Panda",
+    "If Xinlue could be a vegetable, what would you be?": "Carrot",
+    "If Xinlue could have any animal, which animal would he be? ": "Red Panda",
     "What’s Xinlue’s famous sentence? 💃🕺": "Play with me",
-    "If you were a character in a cartoon, what would your catchphrase be? 📺": "The Big Ear Tutu!"
+    "If Xinlue was a character in a cartoon, what would he be? 📺": "The Big Ear Tutu!"
 }
 
 # Initialize session state to track questions
